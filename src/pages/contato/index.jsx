@@ -7,7 +7,12 @@ export default function Contato() {
 const[titulo2,setEscrita2] = useState("")
 const[titulo3,setEscrita3] = useState("")
 const [cor,setCor] = useState("")
-const [check , setcheck] = useState (false)
+
+/////calcuuuuuuuuuu
+
+const [numero1, setNumero1] = useState("")
+const [numero2, setNumero2] = useState("")
+const [resp, setResp] = useState("")
 
 
 function useisso(e){
@@ -22,9 +27,30 @@ function useisso(e){
   setEscrita2(e.target.value);
 }
 
-function mudarCheck(e){
-  setcheck(e.target.value);
+
+////  calccccccccccccccccc
+
+
+ function somar() {
+    let soma = Number(numero1) + Number(numero2)
+    setResp(soma)
 }
+
+ function subtrair() {
+        let subtracao = Number(numero1) - Number(numero2)
+        setResp(subtracao)
+    }
+
+      function multiplicar() {
+        let multiplicacao = Number(numero1) * Number(numero2)
+        setResp(multiplicacao)
+    }
+
+
+    function dividir() {
+        let divisao = Number(numero1) / Number(numero2)
+        setResp(divisao)
+    }
 
   return (
 
@@ -45,13 +71,27 @@ function mudarCheck(e){
 <div className='aqui' style={{backgroundColor: cor }}>
 </div>
 
-<section className='a'>
-<p>Você gosta de programar? {check ? "Não" :"Sim"} <br /></p>
-<input type="checkbox" onChange={mudarCheck}/> 
+    <div>
+<h2>Calculadora</h2>
+<input type="text" value={numero1} onChange={(e) => setNumero1(e.target.value)}/>
+<input type="text" value={numero2} onChange={(e) => setNumero2(e.target.value)}/>
+<div>=</div>
+<div>{resp}</div>
+
+<button onClick={somar}>Somar</button>
+
+<button onClick={subtrair}>Subtrair</button>
+
+<button onClick={multiplicar}>Multiplicar</button>
+
+ <button onClick={dividir}>Dividir</button>
+</div>
+
 </section>
-</section>
+
 </div>
     </div>
+
   );
 }
 
